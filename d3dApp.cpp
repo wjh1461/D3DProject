@@ -407,6 +407,8 @@ bool D3DApp::InitDirect3D()
 	}
 #endif // defined(DEBUG) || defined(_DEBUG)
 
+	ThrowIfFailed(CreateDXGIFactory(IID_PPV_ARGS(&mdxgiFactory)));
+
 	// 디바이스 생성
 	HRESULT hardwareResult = D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_11_0, IID_PPV_ARGS(&md3dDevice));
 
@@ -447,7 +449,7 @@ bool D3DApp::InitDirect3D()
 	// Rtv Dsv 서술자 힙 생성
 	CreateRtvAndDsvDescriptorHeaps();
 
-	return false;
+	return true;
 }
 //////////////////////////////////////////////////////////////
 
@@ -527,8 +529,10 @@ void D3DApp::CalculateFrameStats()
 		std::wstring mspfStr = std::to_wstring(mspf);
 
 		std::wstring windowText = mMainWndCaption +
-			L"	 fps: " + fpsStr +
-			L"	mspf: " + mspfStr;
+			L"       fps : " + fpsStr +
+			L"      mspf : " + mspfStr;
+
+		SetWindowText(mhMainWnd, windowText.c_str());
 
 		frameCnt = 0;
 		timeElapsed += 1.0f;

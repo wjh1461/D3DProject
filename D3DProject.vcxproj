@@ -146,6 +146,7 @@
     <ClCompile Include="D3DApp.cpp" />
     <ClCompile Include="d3dUtil.cpp" />
     <ClCompile Include="GameTimer.cpp" />
+    <ClCompile Include="InitDirect3DApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D3DApp.h" />

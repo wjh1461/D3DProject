@@ -30,7 +30,7 @@ public:
 
 	HRESULT ErrorCode = S_OK;
 	std::wstring FunctionName;
-	std::wstring FileName;
+	std::wstring Filename;
 	int LineNumber = -1;
 };
 
