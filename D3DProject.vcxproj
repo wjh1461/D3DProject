@@ -143,13 +143,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="d3dApp.cpp" />
+    <ClCompile Include="D3DApp.cpp" />
     <ClCompile Include="d3dUtil.cpp" />
     <ClCompile Include="GameTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="d3dApp.h" />
+    <ClInclude Include="D3DApp.h" />
     <ClInclude Include="d3dUtil.h" />
+    <ClInclude Include="d3dx12.h" />
     <ClInclude Include="GameTimer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
