@@ -84,17 +84,35 @@ struct MeshGeometry
 	// 블로브(ID3DBlob)를 사용한다.
 	// 실제로 사용할 때에는 클라이언트에서 적절한 캐스팅해야 한다.
 	Microsoft::WRL::ComPtr<ID3DBlob> VertexBufferCPU = nullptr;
+
+	Microsoft::WRL::ComPtr<ID3DBlob> VPosBufferCPU = nullptr;
+	Microsoft::WRL::ComPtr<ID3DBlob> VColorBufferCPU = nullptr;
+
 	Microsoft::WRL::ComPtr<ID3DBlob> IndexBufferCPU = nullptr;
 
 	Microsoft::WRL::ComPtr<ID3D12Resource> VertexBufferGPU = nullptr;
+
+	Microsoft::WRL::ComPtr<ID3D12Resource> VPosBufferGPU = nullptr;
+	Microsoft::WRL::ComPtr<ID3D12Resource> VColorBufferGPU = nullptr;
+
 	Microsoft::WRL::ComPtr<ID3D12Resource> IndexBufferGPU = nullptr;
 
 	Microsoft::WRL::ComPtr<ID3D12Resource> VertexBufferUploader = nullptr;
+
+	Microsoft::WRL::ComPtr<ID3D12Resource> VPosBufferUploader = nullptr;
+	Microsoft::WRL::ComPtr<ID3D12Resource> VColorBufferUploader = nullptr;
+
 	Microsoft::WRL::ComPtr<ID3D12Resource> IndexBufferUploader = nullptr;
 
-	// 버프들에 관한 자료.
+	// 버퍼들에 관한 자료.
 	UINT VertexByteStride = 0;
 	UINT VertexBufferByteSize = 0;
+
+	UINT VPosByteStride = 0;
+	UINT VPosBufferByteSize = 0;
+	UINT VColorByteStride = 0;
+	UINT VColorBufferByteSize = 0;
+
 	DXGI_FORMAT IndexFormat = DXGI_FORMAT_R16_UINT;
 	UINT IndexBufferByteSize = 0;
 
@@ -113,6 +131,28 @@ struct MeshGeometry
 		return vbv;
 	}
 
+	// 연습문제 2번 추가 부분
+	D3D12_VERTEX_BUFFER_VIEW VPosBufferView() const
+	{
+		D3D12_VERTEX_BUFFER_VIEW vbv;
+		vbv.BufferLocation = VPosBufferGPU->GetGPUVirtualAddress();
+		vbv.StrideInBytes = VPosByteStride;
+		vbv.SizeInBytes = VPosBufferByteSize;
+
+		return vbv;
+	}
+
+	// 연습문제 2번 추가 부분
+	D3D12_VERTEX_BUFFER_VIEW VColorBufferView() const
+	{
+		D3D12_VERTEX_BUFFER_VIEW vbv;
+		vbv.BufferLocation = VColorBufferGPU->GetGPUVirtualAddress();
+		vbv.StrideInBytes = VColorByteStride;
+		vbv.SizeInBytes = VColorBufferByteSize;
+
+		return vbv;
+	}
+
 	D3D12_INDEX_BUFFER_VIEW IndexBufferView() const
 	{
 		D3D12_INDEX_BUFFER_VIEW ibv;
@@ -127,6 +167,11 @@ struct MeshGeometry
 	void DisposeUploaders()
 	{
 		VertexBufferUploader = nullptr;
+
+		// 연습문제 2번 추가 부분
+		VPosBufferUploader = nullptr;
+		VColorBufferUploader = nullptr;
+
 		IndexBufferUploader = nullptr;
 	}
 };
