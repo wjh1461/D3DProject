@@ -127,7 +127,7 @@ protected:
 
 	UINT mRtvDescriptorSize = 0;
 	UINT mDsvDescriptorSize = 0;
-	UINT mCbvSrvDescriptorSize = 0;
+	UINT mCbvSrvUavDescriptorSize = 0;
 
 	// 파생 클래스는 자신의 생성자에서 이 멤버 변수들을
 	// 자신의 목적에 맞는 초기 값들로 설정해야 한다.

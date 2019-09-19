@@ -241,13 +241,13 @@ void BoxApp::Draw(const GameTimer& gt)
 	mCommandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	mCommandList->SetGraphicsRootDescriptorTable(0, mCbvHeap->GetGPUDescriptorHandleForHeapStart());
-
 	//mCommandList->DrawIndexedInstanced(mBoxGeo->DrawArgs["box"].IndexCount, 1, 0, 0, 0);
 	mCommandList->DrawIndexedInstanced(36, 1, 0, 0, 0);
 
 	auto handle = CD3DX12_GPU_DESCRIPTOR_HANDLE(mCbvHeap->GetGPUDescriptorHandleForHeapStart());
 	handle.Offset(1, md3dDevice->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV));
 	mCommandList->SetGraphicsRootDescriptorTable(0, handle);
+
 	mCommandList->DrawIndexedInstanced(18, 1, 36, 8, 0);
 
 	// 자원 용도에 관련된 상태 전이를 Direct3D에 통지한다.

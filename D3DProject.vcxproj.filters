@@ -25,11 +25,14 @@
     <Filter Include="소스 파일\Util">
       <UniqueIdentifier>{673ceb67-227c-46a6-a0f6-49402e445f85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\App\Chapter 6">
+      <UniqueIdentifier>{76732200-0ac0-411d-ac4d-e434f358fd11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\App\Chapter 7">
+      <UniqueIdentifier>{8e3c8694-79a3-44d1-b2f1-e114451c0e58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BoxApp.cpp">
-      <Filter>소스 파일\App</Filter>
-    </ClCompile>
     <ClCompile Include="D3DApp.cpp">
       <Filter>소스 파일\App</Filter>
     </ClCompile>
@@ -44,6 +47,21 @@
     </ClCompile>
     <ClCompile Include="MathHelper.cpp">
       <Filter>소스 파일\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameResource.cpp">
+      <Filter>소스 파일\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="GeometryGenerator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LandAndWavesApp.cpp">
+      <Filter>소스 파일\App\Chapter 7</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapesApp.cpp">
+      <Filter>소스 파일\App\Chapter 7</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxApp.cpp">
+      <Filter>소스 파일\App\Chapter 6</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="UploadBuffer.h">
       <Filter>헤더 파일\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameResource.h">
+      <Filter>헤더 파일\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryGenerator.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
