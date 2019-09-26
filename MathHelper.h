@@ -1,5 +1,7 @@
 ﻿#pragma once
+#include <Windows.h>
 #include <DirectXMath.h>
+#include <cstdint>
 
 class MathHelper
 {
@@ -8,6 +10,22 @@ public:
 	static T Clamp(const T& x, const T& low, const T& high)
 	{
 		return x < low ? low : (x > high ? high : x);
+	}
+
+	static int Rand(int a, int b)
+	{
+		return a + rand() % ((b - a) + 1);
+	}
+
+	// Returns random float in [0, 1).
+	static float RandF()
+	{
+		return (float)(rand()) / (float)RAND_MAX;
+	}
+
+	static float RandF(float a, float b)
+	{
+		return a + RandF() * (b - a);
 	}
 
 	static DirectX::XMFLOAT4X4 Identity4x4() 

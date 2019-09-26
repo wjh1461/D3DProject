@@ -63,6 +63,9 @@
     <ClCompile Include="BoxApp.cpp">
       <Filter>소스 파일\App\Chapter 6</Filter>
     </ClCompile>
+    <ClCompile Include="Waves.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="d3dx12.h">
@@ -87,6 +90,9 @@
       <Filter>헤더 파일\Util</Filter>
     </ClInclude>
     <ClInclude Include="GeometryGenerator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Waves.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

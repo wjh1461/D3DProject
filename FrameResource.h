@@ -41,6 +41,7 @@ class FrameResource
 {
 public:
 	FrameResource(ID3D12Device* device, UINT passCount, UINT objectCount);
+	FrameResource(ID3D12Device* device, UINT passCount, UINT objectCount, UINT waveVertCount);
 	FrameResource(const FrameResource& rhs) = delete;
 	FrameResource& operator=(const FrameResource& rhs) = delete;
 	~FrameResource();
@@ -53,6 +54,8 @@ public:
 	// 갱신해야 한다. 따라서 프레임마다 상수 버퍼를 새로 만들어야 한다.
 	std::unique_ptr<UploadBuffer<PassConstants>> PassCB = nullptr;
 	std::unique_ptr<UploadBuffer<ObjectConstants>> ObjectCB = nullptr;
+
+	std::unique_ptr<UploadBuffer<Vertex>> WavesVB = nullptr;
 
 	// Fence는 현재 울타리 지점까지의 명령들을 표시하는 값이다.
 	// 이 값은 GPU가 아직 이 프레임 자원들을 사용하고 있는지
