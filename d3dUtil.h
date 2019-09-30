@@ -10,6 +10,7 @@
 #include <DirectXColors.h>
 #include <DirectXCollision.h>
 #include <memory>
+#include <fstream>
 #include <array>
 #include <unordered_map>
 #include <string>
