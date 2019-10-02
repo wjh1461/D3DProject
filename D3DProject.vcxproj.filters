@@ -31,6 +31,9 @@
     <Filter Include="소스 파일\App\Chapter 7">
       <UniqueIdentifier>{8e3c8694-79a3-44d1-b2f1-e114451c0e58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\App\Chapter 8">
+      <UniqueIdentifier>{93e48c82-bf33-4b5b-9835-b063755526e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D3DApp.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="Waves.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LitWavesApp.cpp">
+      <Filter>소스 파일\App\Chapter 8</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -159,9 +159,10 @@
     <ClCompile Include="LandAndWavesApp.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="LitWavesApp.cpp" />
     <ClCompile Include="MathHelper.cpp" />
     <ClCompile Include="ShapesApp.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Waves.cpp" />
   </ItemGroup>

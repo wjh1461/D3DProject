@@ -16,7 +16,9 @@
 #include <string>
 #include <cassert>
 #include "d3dx12.h"
+#include "MathHelper.h"
 
+extern const int gNumFrameResources;
 
 inline std::wstring AnsiToWString(const std::string& str)
 {
@@ -57,6 +59,32 @@ public:
 	std::wstring FunctionName;
 	std::wstring Filename;
 	int LineNumber = -1;
+};
+
+struct Material
+{
+	// 고유한 재질 이름(재질 조회에 쓰임).
+	std::string Name;
+
+	// 이 재질에 해당하는 상수 버퍼의 색인.
+	int MatCBIndex = -1;
+
+	// SRV 힙에서 이 재질에 해당하는 분산 텍스처의 색인. 텍스처 적용은 제9장에서 다룬다.
+	int DiffuseSrvHeapIndex = -1;
+
+	/*
+	 재질이 변해서 해당 상수 버퍼를 갱신해야 하는지의 여부를 나타내는 '더러움' 플래그.
+	 FrameResource마다 물체의 cbuffer가 있으므로, FrameResource마다 갱신을 적용해야 한다. 따라서,
+	 물체의 자료를 수정할 때에는 반드시 NumFramesDirty = gNumFrameResources 로 설정해야 한다.
+	 그래야 각각의 프레임 자원이 갱신된다.
+	 */
+	int NumFramesDirty = gNumFrameResources;
+
+	// 셰이딩에 쓰이는 재질 상수 버퍼 자료.
+	DirectX::XMFLOAT4 DiffuseAlbedo = { 1.0f, 1.0f, 1.0f, 1.0f };
+	DirectX::XMFLOAT3 FresnelR0 = { 0.01f, 0.01f, 0.01f };
+	float Roughness = 0.25f;
+	DirectX::XMFLOAT4X4 MatTransform = MathHelper::Identity4x4();
 };
 
 
