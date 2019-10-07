@@ -20,13 +20,14 @@
 
 extern const int gNumFrameResources;
 
+#define MaxLights 16
+
 inline std::wstring AnsiToWString(const std::string& str)
 {
 	WCHAR buffer[512];
 	MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, buffer, 512);
 	return std::wstring(buffer);
 }
-
 
 class d3dUtil
 {
@@ -85,6 +86,17 @@ struct Material
 	DirectX::XMFLOAT3 FresnelR0 = { 0.01f, 0.01f, 0.01f };
 	float Roughness = 0.25f;
 	DirectX::XMFLOAT4X4 MatTransform = MathHelper::Identity4x4();
+};
+
+// 빛 구조체
+struct Light
+{
+	DirectX::XMFLOAT3 Strength;		// 빛의 색상.
+	float FalloffStart;				// 점광과 점적광에만 쓰인다.
+	DirectX::XMFLOAT3 Direction;	// 지향광과 점적광에만 쓰인다.
+	float FalloffEnd;				// 점광과 점적광에만 쓰인다.
+	DirectX::XMFLOAT3 Position;		// 점광과 점적광에만 쓰인다.
+	float SpotPower;				// 점적광에만 쓰인다.
 };
 
 
