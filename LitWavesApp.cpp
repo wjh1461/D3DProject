@@ -425,7 +425,9 @@ void LitWavesApp::UpdateMainPassCB(const GameTimer& gt)
 	XMVECTOR lightDir = -MathHelper::SphericalToCartesian(1.0f, mSunTheta, mSunPhi);
 
 	XMStoreFloat3(&mMainPassCB.Lights[0].Direction, lightDir);
-	mMainPassCB.Lights[0].Strength = { 0.8f, 0.8f, 0.7f };
+	// 빛의 세기
+	//mMainPassCB.Lights[0].Strength = { 0.8f, 0.8f, 0.7f };
+	mMainPassCB.Lights[0].Strength = { sinf(gt.TotalTime()), 0.0f, 0.0f };
 
 	auto currPassCB = mCurrFrameResource->PassCB.get();
 	currPassCB->CopyData(0, mMainPassCB);
