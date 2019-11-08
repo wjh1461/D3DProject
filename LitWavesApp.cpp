@@ -426,8 +426,9 @@ void LitWavesApp::UpdateMainPassCB(const GameTimer& gt)
 
 	XMStoreFloat3(&mMainPassCB.Lights[0].Direction, lightDir);
 	// 빛의 세기
-	//mMainPassCB.Lights[0].Strength = { 0.8f, 0.8f, 0.7f };
-	mMainPassCB.Lights[0].Strength = { sinf(gt.TotalTime()), 0.0f, 0.0f };
+	mMainPassCB.Lights[0].Strength = { 0.8f, 0.8f, 0.7f };
+	// 8장 연습문제 1번.
+	//mMainPassCB.Lights[0].Strength = { sinf(gt.TotalTime()), 0.0f, 0.0f };
 
 	auto currPassCB = mCurrFrameResource->PassCB.get();
 	currPassCB->CopyData(0, mMainPassCB);
@@ -466,7 +467,7 @@ void LitWavesApp::UpdateWaves(const GameTimer& gt)
 
 void LitWavesApp::BuildRootSignature()
 {
-	CD3DX12_ROOT_PARAMETER slotRootParameter[3];
+	CD3DX12_ROOT_PARAMETER slotRootParameter[3] = {};
 
 	slotRootParameter[0].InitAsConstantBufferView(0);
 	slotRootParameter[1].InitAsConstantBufferView(1);
