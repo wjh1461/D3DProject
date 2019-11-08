@@ -17,6 +17,7 @@
 #include <cassert>
 #include "d3dx12.h"
 #include "MathHelper.h"
+#include "DDSTextureLoader.h"
 
 extern const int gNumFrameResources;
 
@@ -97,6 +98,16 @@ struct Light
 	float FalloffEnd;				// 점광과 점적광에만 쓰인다.
 	DirectX::XMFLOAT3 Position;		// 점광과 점적광에만 쓰인다.
 	float SpotPower;				// 점적광에만 쓰인다.
+};
+
+struct Texture
+{
+	std::string Name;
+
+	std::wstring Filename;
+
+	Microsoft::WRL::ComPtr<ID3D12Resource> Resource = nullptr;
+	Microsoft::WRL::ComPtr<ID3D12Resource> UploadHeap = nullptr;
 };
 
 

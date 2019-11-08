@@ -34,6 +34,9 @@
     <Filter Include="소스 파일\App\Chapter 8">
       <UniqueIdentifier>{93e48c82-bf33-4b5b-9835-b063755526e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\App\Chapter 9">
+      <UniqueIdentifier>{a308d525-3f5e-449e-9fdd-726e9ea7165a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D3DApp.cpp">
@@ -72,6 +75,15 @@
     <ClCompile Include="LitWavesApp.cpp">
       <Filter>소스 파일\App\Chapter 8</Filter>
     </ClCompile>
+    <ClCompile Include="LitColumns.cpp">
+      <Filter>소스 파일\App\Chapter 8</Filter>
+    </ClCompile>
+    <ClCompile Include="CrateApp.cpp">
+      <Filter>소스 파일\App\Chapter 9</Filter>
+    </ClCompile>
+    <ClCompile Include="DDSTextureLoader.cpp">
+      <Filter>소스 파일\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="d3dx12.h">
@@ -100,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Waves.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DDSTextureLoader.h">
+      <Filter>헤더 파일\Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
